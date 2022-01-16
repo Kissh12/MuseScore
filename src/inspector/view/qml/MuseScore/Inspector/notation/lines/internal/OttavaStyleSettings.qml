@@ -21,6 +21,8 @@
  */
 import QtQuick 2.15
 import QtQuick.Controls 2.15
+import QtQuick 2.3
+
 
 import MuseScore.UiComponents 1.0
 import MuseScore.Ui 1.0
@@ -34,7 +36,7 @@ FocusableItem {
     property QtObject model: null
 
     property NavigationPanel navigationPanel: null
-    property int navigationRowStart: 1
+    property int navigationRowStart: null
 
     implicitHeight: contentColumn.height
     width: parent.width
@@ -54,6 +56,12 @@ FocusableItem {
 
             navigationPanel: root.navigationPanel
             navigationRowStart: root.navigationRowStart
+            
+        maxVal: 10.00
+        minVal: 0.01
+        step: 0.01
+        val: 2 
+        
         }
 
         CheckBoxPropertyView {
@@ -64,6 +72,12 @@ FocusableItem {
             navigation.name: "ShowNumbersOnly"
             navigation.panel: root.navigationPanel
             navigation.row: typeSection.navigationRowEnd + 1
+            
+        maxVal: 10.00
+        minVal: 0.1
+        step: 0.05
+        val: 2 
+                 
         }
 
         SeparatorLine { anchors.margins: -12 }
